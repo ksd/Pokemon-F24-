@@ -13,13 +13,13 @@ struct PokemonRow: View {
     
     var body: some View {
         
-        NavigationLink(destination: PokemonDetail(pokemon: pokemonName)) {
+        NavigationLink(destination: PokemonDetail(pokemon: $pokemonName)) {
             HStack {
                 Image(pokemonName)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 50)
-                Text(pokemonName)
+                Text(pokemonName.capitalized)
                     .font(.headline)
             }
         }

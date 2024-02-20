@@ -9,15 +9,16 @@ import SwiftUI
 
 struct PokemonDetail: View {
     
-    let pokemon: String
+    @Binding var pokemon: String
+    
     var body: some View {
         ZStack(alignment: .top) {
-            Image(pokemon)
-            Text(pokemon)
+            Image(pokemon).resizable().aspectRatio(contentMode: .fit)
+            Text(pokemon.capitalized).font(.largeTitle).bold()
         }
     }
 }
 
 #Preview {
-    PokemonDetail(pokemon: "pikachu")
+    PokemonDetail(pokemon: .constant("pikachu"))
 }
